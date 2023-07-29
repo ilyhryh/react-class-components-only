@@ -115,7 +115,6 @@ jobs:
       - name: Strip @license from eslint plugin and react-refresh
         run: |
           sed -i -e 's/ @license React*//' \
-            build/oss-experimental/eslint-plugin-react-hooks/cjs/eslint-plugin-react-hooks.development.js \
             build/oss-experimental/react-refresh/cjs/react-refresh-babel.development.js
       - name: Move relevant files for React in www into compiled
         run: |
@@ -128,10 +127,6 @@ jobs:
 
           # Copy WARNINGS to facebook-www
           mv build/WARNINGS ./compiled/facebook-www/WARNINGS
-
-          # Copy eslint-plugin-react-hooks into facebook-www
-          mv build/oss-experimental/eslint-plugin-react-hooks/cjs/eslint-plugin-react-hooks.development.js \
-            ./compiled/facebook-www/eslint-plugin-react-hooks.js
 
           # Copy unstable_server-external-runtime.js into facebook-www
           mv build/oss-stable/react-dom/unstable_server-external-runtime.js \

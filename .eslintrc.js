@@ -331,7 +331,6 @@ module.exports = {
         'packages/react-devtools-extensions/**/*.js',
         'packages/react-devtools-timeline/**/*.js',
         'packages/react-native-renderer/**/*.js',
-        'packages/eslint-plugin-react-hooks/**/*.js',
         'packages/jest-react/**/*.js',
         'packages/internal-test-utils/**/*.js',
         'packages/**/__tests__/*.js',
@@ -402,7 +401,6 @@ module.exports = {
     {
       files: [
         'scripts/eslint-rules/*.js',
-        'packages/eslint-plugin-react-hooks/src/*.js',
       ],
       plugins: ['eslint-plugin'],
       rules: {

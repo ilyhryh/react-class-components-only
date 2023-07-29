@@ -44,8 +44,6 @@ export const NotPending: FormStatus = __DEV__
   : sharedNotPendingObject;
 
 function resolveDispatcher() {
-  // Copied from react/src/ReactHooks.js. It's the same thing but in a
-  // different package.
   const dispatcher = ReactCurrentDispatcher.current;
   if (__DEV__) {
     if (dispatcher === null) {

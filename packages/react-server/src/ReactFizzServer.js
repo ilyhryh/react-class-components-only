@@ -95,7 +95,6 @@ import {
   popProvider,
 } from './ReactFizzNewContext';
 import {
-  prepareToUseHooks,
   finishHooks,
   checkDidRenderIdHook,
   resetHooksState,
@@ -734,7 +733,6 @@ function renderWithHooks<Props, SecondArg>(
   secondArg: SecondArg,
 ): any {
   const componentIdentity = {};
-  prepareToUseHooks(task, componentIdentity, prevThenableState);
   const result = Component(props, secondArg);
   return finishHooks(Component, props, result, secondArg);
 }

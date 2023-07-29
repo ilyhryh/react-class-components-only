@@ -66,8 +66,6 @@ import {
 
 import {
   HooksDispatcher,
-  prepareToUseHooksForRequest,
-  prepareToUseHooksForComponent,
   getThenableStateAfterSuspending,
   resetHooksForRequest,
 } from './ReactFlightHooks';
@@ -457,7 +455,6 @@ function attemptResolveElement(
       return [REACT_ELEMENT_TYPE, type, key, props];
     }
     // This is a server-side component.
-    prepareToUseHooksForComponent(prevThenableState);
     const result = type(props);
     if (
       typeof result === 'object' &&
@@ -510,7 +507,6 @@ function attemptResolveElement(
       }
       case REACT_FORWARD_REF_TYPE: {
         const render = type.render;
-        prepareToUseHooksForComponent(prevThenableState);
         return render(props, undefined);
       }
       case REACT_MEMO_TYPE: {
@@ -1377,7 +1373,6 @@ function performWork(request: Request): void {
   ReactCurrentDispatcher.current = HooksDispatcher;
   const prevRequest = currentRequest;
   currentRequest = request;
-  prepareToUseHooksForRequest(request);
 
   try {
     const pingedTasks = request.pingedTasks;

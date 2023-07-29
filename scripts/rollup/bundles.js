@@ -949,21 +949,6 @@ const bundles = [
     externals: ['react', 'scheduler', 'scheduler/unstable_mock'],
   },
 
-  /******* ESLint Plugin for Hooks *******/
-  {
-    // TODO: it's awkward to create a bundle for this but if we don't, the package
-    // won't get copied. We also can't create just DEV bundle because it contains a
-    // NODE_ENV check inside. We should probably tweak our build process to allow
-    // "raw" packages that don't get bundled.
-    bundleTypes: [NODE_DEV, NODE_PROD],
-    moduleType: ISOMORPHIC,
-    entry: 'eslint-plugin-react-hooks',
-    global: 'ESLintPluginReactHooks',
-    minifyWithProdErrorCodes: false,
-    wrapWithModuleBoundaries: false,
-    externals: [],
-  },
-
   /******* React Fresh *******/
   {
     bundleTypes: [NODE_DEV, NODE_PROD],
